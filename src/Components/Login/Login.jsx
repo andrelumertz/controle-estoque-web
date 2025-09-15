@@ -3,21 +3,16 @@ import { FaUser, FaLock } from "react-icons/fa";
 import "./Login.css";
 
 const Login = () => {
-  // Estados para armazenar as entradas do usuário
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // Função que é chamada quando o formulário é enviado
   const handleSubmit = (event) => {
-    // Impede que a página seja recarregada
     event.preventDefault();
-
-    // Faz o console log das credenciais do usuário
     console.log("Dados de Login:", { username, password });
   };
 
   return (
-    <div className="container">
+    <div className="login-wrapper"> {/* Nova classe para evitar conflito */}
       <form onSubmit={handleSubmit}>
         <h1>Acesse o sistema</h1>
         <p>Faça login para acessar o painel de controle</p>
@@ -41,7 +36,6 @@ const Login = () => {
           />
           <FaLock className="icon" />
         </div>
-
         <div className="recall-forget">
           <label>
             <input type="checkbox" />
@@ -52,7 +46,7 @@ const Login = () => {
         <button type="submit">Login</button>
         <div className="signup-link">
           <p>
-            Não tem uma conta? <a href="#">Registar</a>{" "}
+            Não tem uma conta? <a href="#">Registrar</a>{" "}
           </p>
         </div>
       </form>

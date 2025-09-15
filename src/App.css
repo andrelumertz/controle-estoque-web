@@ -2,18 +2,61 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica;
-  text-shadow: #000 1px 1px;
-  color: #fff;
 }
 
-.App {
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background-color: #1E1E1E; /* Fundo escuro para contraste */
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.banner {
+  flex: 1; /* Ocupa 50% da largura */
+  background: url('./assets/Banner.svg') no-repeat center/cover; /* Confirme o nome da imagem */
+  background-color: rgba(0, 0, 0, 0.5); /* Camada escura para harmonia */
+  background-blend-mode: overlay; /* Mistura a camada com a imagem */
+  height: 100%; /* Garante 100% da altura da coluna */
+  min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+}
+
+.form-container {
+  flex: 1; /* Ocupa 50% da largura */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #1E1E1E;
-  /* background: url("assets/Banner.svg") no-repeat;
-  background-size: cover;
-  background-position: center; */
+  background-color: #1E1E1E; /* Fundo escuro */
+}
+
+/* Restaurar o efeito de vidro no container do Login.jsx */
+.form-container .login-wrapper {
+  width: 450px; /* Mantém o width original */
+  margin: 0 auto; /* Centraliza */
+  background: rgba(255, 255, 255, 0.15); /* Fundo translúcido */
+  backdrop-filter: blur(10px); /* Efeito de vidro */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Borda leve */
+  border-radius: 10px; /* Cantos arredondados */
+  padding: 40px; /* Padding interno */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .banner {
+    height: 40%; /* Ajusta para mobile */
+    min-height: 0; /* Remove min-height em mobile */
+  }
+  .form-container {
+    height: 60%;
+  }
+  .form-container .login-wrapper {
+    width: 90%; /* Ajusta o width em telas menores */
+  }
 }

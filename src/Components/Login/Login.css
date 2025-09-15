@@ -1,25 +1,23 @@
-.container {
-  width: 450px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+.login-wrapper {
+  width: 100%;
+  max-width: 450px;
   padding: 40px;
 }
 
-.container h1 {
+.login-wrapper h1 {
   text-align: center;
   font-size: 30px;
-  color: #ffff;
+  color: #fff;
 }
 
-.container p {
+.login-wrapper p {
   text-align: center;
   padding-top: 10px;
   font-size: 16px;
+  color: #ccc; /* Ajuste de cor para legibilidade */
 }
 
-.container .input-field {
+.login-wrapper .input-field {
   position: relative;
   width: 100%;
   height: 50px;
@@ -29,7 +27,7 @@
 .input-field input {
   width: 100%;
   height: 100%;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1); /* Fundo leve sem vidro */
   outline: none;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 40px;
@@ -51,32 +49,45 @@
   color: #fff;
 }
 
-.container .recall-forget {
+.login-wrapper .recall-forget {
   display: flex;
   justify-content: space-between;
   font-size: 14.5px;
   margin: -15px 0 15px;
+  color: #ccc; /* Ajuste de cor */
 }
 
 .recall-forget label input {
   accent-color: #fff;
   margin-right: 4px;
+  border: 1px solid #ccc; /* Borda verde */
+  border-radius: 4px; /* Cantos arredondados */
+  width: 16px; /* Tamanho padrão */
+  height: 16px; /* Tamanho padrão */
+  appearance: none; /* Remove o estilo padrão */
+  cursor: pointer;
+  background-color: transparent; 
+  transition: border-color 0.3s; /* Transição suave */
+}
+
+.recall-forget label input:checked {
+  border: 2px solid #34A853; /* Preenchimento quando marcado */
 }
 
 .recall-forget a {
-  color: #fff;
-  text-decoration: none;
+  color: #7F5AF0;
+  
 }
 
 .recall-forget a:hover {
   text-decoration: underline;
 }
 
-.container button {
+.login-wrapper button {
   width: 100%;
   height: 45px;
   background: #7F5AF0;
-   background: linear-gradient(90deg, #7F5AF0 0%, #732cb6 100%);
+  background: linear-gradient(90deg, #7F5AF0 0%, #732cb6 100%);
   border: none;
   outline: none;
   border-radius: 40px;
@@ -86,21 +97,19 @@
   color: #fff;
   font-weight: 700;
   text-shadow: none;
-
-  
-  background-size: 200% auto; 
-  transition: background-position 0.5s ease; 
+  background-size: 200% auto;
+  transition: background-position 0.5s ease;
 }
 
-
-.container button:hover {
-  background-position: right center; /* Move o gradiente para a direita */
+.login-wrapper button:hover {
+  background-position: right center;
 }
 
-.container .signup-link {
+.login-wrapper .signup-link {
   font-size: 14.5px;
   text-align: center;
   margin: 20px 0 15px;
+  color: #ccc; /* Ajuste de cor */
 }
 
 .signup-link p a {
