@@ -1,123 +1,148 @@
-.login-wrapper {
+.container {
+  display: flex;
+  min-height: 100vh;
   width: 100%;
-  max-width: 450px;
+}
+
+.banner {
+  flex: 1;
+  background-image: url('../../assets/Banner.svg');; /* Substitua pela sua imagem */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.banner-content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  font-size: 1rem;
+}
+
+.form-container {
+  flex: 1;
+  background-color: #1a1a1a; /* Fundo escuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 40px;
 }
 
+.login-wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(45, 45, 45, 0.8); /* Fundo semitransparente */
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidade com Safari */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+}
+
 .login-wrapper h1 {
-  text-align: center;
-  font-size: 30px;
-  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .login-wrapper p {
-  text-align: center;
-  padding-top: 10px;
-  font-size: 16px;
-  color: #ccc; /* Ajuste de cor para legibilidade */
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
 }
 
-.login-wrapper .input-field {
+.input-field {
   position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px auto;
+  margin-bottom: 20px;
 }
 
 .input-field input {
   width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1); /* Fundo leve sem vidro */
-  outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
-  font-size: 16px;
-  color: #fff;
-  padding: 20px 45px 20px 25px;
-}
-
-.input-field input::placeholder {
-  color: #fff;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #4a4a4a;
+  background-color: rgba(51, 51, 51, 0.7); /* Fundo semitransparente nos inputs */
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .input-field .icon {
   position: absolute;
-  right: 25px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
-  color: #fff;
+  color: #ccc;
 }
 
-.login-wrapper .recall-forget {
+.eye-icon {
+  cursor: pointer;
+}
+
+.recall-forget {
   display: flex;
   justify-content: space-between;
-  font-size: 14.5px;
-  margin: -15px 0 15px;
-  color: #ccc; /* Ajuste de cor */
+  margin-bottom: 20px;
+  font-size: 0.9rem;
 }
 
-.recall-forget label input {
-  accent-color: #fff;
-  margin-right: 4px;
-  border: 1px solid #ccc; /* Borda verde */
-  border-radius: 4px; /* Cantos arredondados */
-  width: 16px; /* Tamanho padrão */
-  height: 16px; /* Tamanho padrão */
-  appearance: none; /* Remove o estilo padrão */
-  cursor: pointer;
-  background-color: transparent; 
-  transition: border-color 0.3s; /* Transição suave */
-}
-
-.recall-forget label input:checked {
-  border: 2px solid #34A853; /* Preenchimento quando marcado */
+.recall-forget label {
+  color: #ccc;
 }
 
 .recall-forget a {
-  color: #7F5AF0;
-  
+  color: #00cc00; /* Verde */
+  text-decoration: none;
 }
 
 .recall-forget a:hover {
   text-decoration: underline;
 }
 
-.login-wrapper button {
+button {
   width: 100%;
-  height: 45px;
-  background: #7F5AF0;
-  background: linear-gradient(90deg, #7F5AF0 0%, #732cb6 100%);
+  padding: 12px;
+  background: linear-gradient(90deg, #8000ff, #a100ff); /* Gradiente roxo */
   border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
-  color: #fff;
-  font-weight: 700;
-  text-shadow: none;
-  background-size: 200% auto;
-  transition: background-position 0.5s ease;
 }
 
-.login-wrapper button:hover {
-  background-position: right center;
+button:hover {
+  background: linear-gradient(90deg, #6b00d6, #8a00cc);
 }
 
-.login-wrapper .signup-link {
-  font-size: 14.5px;
+.signup-link {
   text-align: center;
-  margin: 20px 0 15px;
-  color: #ccc; /* Ajuste de cor */
+  font-size: 0.9rem;
+  margin-top: 20px;
 }
 
-.signup-link p a {
-  color: #fff;
+.signup-link a {
+  color: #00cc00;
   text-decoration: none;
-  font-weight: 600;
 }
 
-.signup-link p a:hover {
+.signup-link a:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  color: #ff3333;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
