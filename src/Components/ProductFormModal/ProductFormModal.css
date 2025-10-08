@@ -1,0 +1,112 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1e1e2d;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  color: #fff;
+  border: 1px solid #2c2c38;
+  outline: none;
+}
+
+.modal-content-wrapper {
+  position: relative;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a9a9b3;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 5px;
+  line-height: 1;
+}
+
+.close-modal-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #a9a9b3;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.modal textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #2c2c38;
+  background-color: #161625;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.modal textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel {
+  background-color: #2c2c38;
+  color: #a9a9b3;
+}
+
+.btn-cancel:hover {
+  background-color: #3d3d4d;
+}
+
+.btn-submit {
+  background-color: #5d5de2;
+  color: #fff;
+}
+
+.btn-submit:hover {
+  background-color: #4a4ac9;
+}

@@ -1,0 +1,55 @@
+/* src/components/Header/Header.css */
+
+.header {
+  /* ESSENCIAL: Ativa o Flexbox e alinha os itens */
+  display: flex;
+  justify-content: space-between; /* Empurra os filhos para as extremidades */
+  align-items: center;            /* Alinha verticalmente no centro */
+  
+  /* Estilos visuais */
+  padding: 20px;
+  background-color: #1e1e2d; /* Cor de fundo um pouco diferente */
+  border-bottom: 1px solid #2c2c38;
+  color: #fff;
+  width: 100%; /* Garante que ocupe a largura toda do .main-panel */
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.header-title p {
+  margin: 0;
+  color: #a9a9b3;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-details {
+  text-align: right;
+}
+
+.user-details span {
+  display: block;
+  font-weight: bold;
+}
+
+.user-details small {
+  color: #a9a9b3;
+}
+
+.user-avatar {
+  background-color: #2c2c38;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}

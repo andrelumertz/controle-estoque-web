@@ -1,0 +1,113 @@
+/* src/pages/Products/Products.css */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.products-title {
+  color: white;
+  /* A MÁGICA ESTÁ AQUI: */
+  /* 'flex-grow: 1' diz ao título para ocupar todo o espaço livre,
+     empurrando o botão para a direita. */
+  flex-grow: 1;
+}
+
+/* Garanta que a regra do botão que já tínhamos continue aqui */
+.add-product-btn {
+  background-color: #5d5de2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: fit-content;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.add-product-btn:hover {
+  background-color: #4a4ac9;
+}
+.products-table {
+  width: 100%;
+  border-collapse: collapse; /* Remove espaço entre as células */
+  margin-top: 20px;
+  color: #a9a9b3;
+}
+
+.products-table thead {
+  background-color: #1e1e2d;
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #2c2c38;
+}
+
+.products-table th {
+  color: #fff;
+  font-weight: bold;
+}
+
+.products-table tbody tr:hover {
+  background-color: #2c2c38;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+.actions-cell button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-edit {
+  background-color: #5d5de2;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Adicione no final de src/pages/Products/Products.css */
+
+ .add-product-btn {
+   /* Estilos que já tínhamos */
+   background-color: #5d5de2;
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-weight: bold;
+   
+   /* A CORREÇÃO MÁGICA: */
+   /* Faz o botão ter a largura do seu conteúdo, e não se esticar */
+   width: fit-content;
+   
+   /* Melhorias adicionais */
+   font-size: 0.9rem;
+   display: flex;
+   align-items: center;
+   gap: 8px; /* Espaço entre o '+' e o texto */
+   transition: background-color 0.2s ease;
+ }
+
+ .add-product-btn:hover {
+   background-color: #4a4ac9;
+ }

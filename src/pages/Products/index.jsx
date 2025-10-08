@@ -1,76 +1,99 @@
 // src/pages/Products/index.jsx
-// src/pages/Products/index.jsx
 
+// 1. IMPORTS CORRETOS NO TOPO
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import api from '../../services/api';
+import ProductFormModal from '../../Components/ProductFormModal/ProductFormModal';
+import './Products.css';
 
-export const Products = () => {
+// 2. DADOS FALSOS (MOCK)
+const mockProducts = [
+  { id: 1, "Nome Produto": "Sacola Plástica Grande", "Quantidade Produto": 150, "Preco Unitario": 5.50 },
+  { id: 2, "Nome Produto": "Caixa de Papelão Média", "Quantidade Produto": 75, "Preco Unitario": 12.00 },
+  { id: 3, "Nome Produto": "Fita Adesiva Transparente", "Quantidade Produto": 200, "Preco Unitario": 8.75 },
+];
+
+const Products = () => {
+  // 3. DECLARAÇÃO DE TODOS OS ESTADOS (useState) NO TOPO DO COMPONENTE
   const [products, setProducts] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingProductId, setEditingProductId] = useState(null);
 
+  // 4. DECLARAÇÃO DO useEffect
   useEffect(() => {
-    api.get('/products')
-      .then(response => {
-        setProducts(response.data);
-      })
-      .catch(error => {
-        console.error("Houve um erro ao buscar os produtos!", error);
-      });
+    setTimeout(() => {
+      setProducts(mockProducts);
+    }, 1000);
   }, []);
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Tem certeza que deseja deletar este produto?')) {
-      try {
-        // Usando o ID correto para a requisição DELETE
-        await api.delete(`/products/${id}`);
-        // Atualiza a lista removendo o produto pelo "ID Produto"
-        setProducts(products.filter(product => product["ID Produto"] !== id));
-      } catch (error) {
-        console.error("Erro ao deletar o produto!", error);
-        alert("Não foi possível deletar o produto.");
-      }
+  // 5. DECLARAÇÃO DAS FUNÇÕES (agora elas podem 'enxergar' os setters dos estados)
+  const handleOpenCreateModal = () => {
+    setEditingProductId(null);
+    setIsModalOpen(true);
+  };
+
+  const handleOpenEditModal = (id) => {
+    setEditingProductId(id);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSaveProduct = (savedProduct) => {
+    if (savedProduct.id) {
+      setProducts(products.map(p => p.id === savedProduct.id ? savedProduct : p));
+    } else {
+      setProducts([...products, { ...savedProduct, id: Date.now() }]);
     }
   };
 
+  // 6. O RETURN COM O JSX
   return (
     <div>
-      <h1>Lista de Produtos</h1>
+      <div className="products-header">
+  <h3 className="products-title">Lista de Produtos</h3>
+  <button className="add-product-btn" onClick={handleOpenCreateModal}>
+    + Adicionar Novo Produto
+  </button>
+</div>
 
-      <Link to="/products/new">
-        <button>Adicionar Novo Produto</button>
-      </Link>
-
-      <table border="1" style={{ width: '100%', marginTop: '20px' }}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Quantidade</th>
-            <th>Preço Unitário</th>
-            <th>Tipo</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map(product => (
-            // A "key" e o ID para as ações agora usam product["ID Produto"]
-            <tr key={product["ID Produto"]}>
-              <td>{product["ID Produto"]}</td>
-              <td>{product["Nome Produto"]}</td>
-
-              <td>{product["Quantidade Produto"]}</td>
-              <td>R$ {product["Preco Unitario"]}</td>
-              <td>{product["Tipo Produto"]}</td>
-              <td>
-                <Link to={`/products/edit/${product["ID Produto"]}`}>
-                  <button>Editar</button>
-                </Link>
-                <button onClick={() => handleDelete(product["ID Produto"])}>Deletar</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ProductFormModal 
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseModal}
+        productId={editingProductId}
+        onSave={handleSaveProduct} 
+      />
+      
+      {products.length === 0 ? (
+          <p style={{color: 'white', textAlign: 'center', marginTop: '20px'}}>Carregando produtos...</p>
+      ) : (
+          <table className="products-table">
+            <thead>
+              <tr>
+                <th>Nome do Produto</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map(product => (
+                <tr key={product.id}>
+                  <td>{product['Nome Produto']}</td>
+                  <td>{product['Quantidade Produto']}</td>
+                  <td>R$ {product['Preco Unitario'].toFixed(2)}</td>
+                  <td className="actions-cell">
+                    <button className="btn-edit" onClick={() => handleOpenEditModal(product.id)}>Editar</button>
+                    <button className="btn-delete" onClick={() => alert(`Simulando exclusão do produto ID: ${product.id}`)}>Excluir</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      )}
     </div>
   );
 };
+
+export default Products;
